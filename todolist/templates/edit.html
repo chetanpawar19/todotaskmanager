@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Edit task</title>
+{% endblock %}
+
+{% block content %}
+    <br>
+    <div class="container">
+         <form method="POST" class="row">   <!--class=row to arrange all form elements in row-->
+            {% csrf_token %}
+            <input type="text" class="form-control col-lg-6" name="task" id="addtask" placeholder="{{ task_obj.task }}" value="{{ task_obj.task }}">
+            <input type="hidden" name="status" value="{{ task_obj.status }}">  <!--to carry previous task statusn otherwise it will take default status i.e. false -pending-->
+            <button type="submit" class="btn btn-primary col-lg-2">Update task</button>
+        </form>
+    </div>
+{% endblock %}
